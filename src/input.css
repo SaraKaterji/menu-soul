@@ -146,85 +146,14 @@ main > section + section {
    the card clips them in half, so the page shows through as
    perforations. */
 .menu-cat {
-  --scallop: clamp(8px, 1.8cqi, 12px);
-  --page: #fff7f0;
-  position: relative;
   display: block;
-  overflow: hidden;
-  color: #fff;
   text-decoration: none;
-  background-color: #00728a;
 }
 
-.menu-cat::after {
-  content: "";
-  position: absolute;
-  inset: calc(var(--scallop) / -2);
-  z-index: 2;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%),
-    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%),
-    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%),
-    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%);
-  background-size: var(--scallop) var(--scallop);
-  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-  background-position:
-    0 0,
-    0 100%,
-    0 0,
-    100% 0;
-}
-
-.menu-cat-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-  margin: calc(var(--scallop) * 0.85);
-  padding: 0.7em;
-  gap: 0.4em;
-  background-color: #00728a;
-}
-
-.menu-cat-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-self: stretch;
-  padding: 1.35em 1.1em;
-  min-height: 4.2em;
-  background-color: #0C4D6A;
-}
-
-.menu-cat-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: calc(2 * 1.15em);
-  font-family: var(--font-moric);
-  font-size: clamp(0.7rem, 2.55cqi, 1.05rem);
-  line-height: 1.15;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-@media (max-width: 479px) {
-  .menu-cat-label {
-    font-size: clamp(0.95rem, 4.4cqi, 1.2rem);
-  }
-}
-
-.menu-cat-rule {
+.menu-cat img {
   display: block;
-  align-self: stretch;
   width: 100%;
-  height: 1px;
-  background-color: #fff;
+  height: auto;
 }
 
 .starters-2-panel {
