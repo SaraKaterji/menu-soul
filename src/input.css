@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gotham Extra Narrow";
+  src: url("../fonts/gotham-extra-narrow-book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Extra Narrow";
+  src: url("../fonts/gotham-extra-narrow-medium.otf") format("opentype");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Baroneys Textured";
+  src: url("../fonts/BaroneysTextured.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bellarina";
+  src: url("../fonts/Bellarina.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Moric";
+  src: url("../fonts/Moric.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Baloo Bhaijaan 2";
+  src: url("../fonts/BalooBhaijaan2-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --breakpoint-xs: 30rem;
+  --font-sans: "Gotham Extra Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Baroneys Textured", ui-serif, Georgia, serif;
+  --font-script: "Bellarina", cursive;
+  --font-moric: "Moric", ui-serif, Georgia, serif;
+  --font-arabic: "Baloo Bhaijaan 2", sans-serif;
+  --color-brand: #00728a;
+  --color-gold: #ecbd4d;
+  --color-deep: #2a5c6f;
+  --color-muted: #7d93a0;
+  --color-page: #f7f5f0;
+  --text-hero: 70px;
+  --text-hero--line-height: 1;
+  --text-tagline: 60px;
+  --text-tagline--line-height: 1;
+  --text-item: 20px;
+  --text-desc: 18px;
+}
+
+.sheet {
+  width: min(100%, 42rem);
+  margin-inline: auto;
+  aspect-ratio: 1081 / 1922;
+  container-type: inline-size;
+  overflow: hidden;
+}
+
+.sheet-page {
+  width: 42rem;
+  transform-origin: top left;
+  transform: scale(calc(100cqi / 42rem));
+}
+
+/* Fluid type for index_2.html — sizes scale as % of the menu card width */
+.menu-fluid {
+  container-type: inline-size;
+}
+
+main > section + section {
+  margin-top: 15px;
+}
+
+.menu-fluid .text-hero,
+.menu-fluid .text-hero-sm,
+.menu-fluid .text-hero-75 {
+  -webkit-text-stroke: 1px currentColor;
+  paint-order: stroke fill;
+}
+
+.menu-fluid .text-hero {
+  font-size: clamp(2.5rem, 10.42cqi, 70px);
+}
+
+@media (max-width: 639px) {
+  #breakfast h2.text-hero {
+    font-size: clamp(2.25rem, 9.5cqi, 70px);
+  }
+}
+
+.menu-fluid .text-hero-sm {
+  font-size: clamp(1.75rem, 7.14cqi, 48px);
+}
+
+.menu-fluid .text-hero-75 {
+  font-size: clamp(1.875rem, 7.815cqi, 52.5px);
+}
+
+.menu-fluid .text-subtitle {
+  font-size: clamp(1rem, 3.57cqi, 24px);
+}
+
+.menu-fluid .text-tagline {
+  font-size: clamp(2rem, 8.93cqi, 60px);
+}
+
+.menu-fluid .text-item {
+  font-size: clamp(1rem, 2.98cqi, 20px);
+}
+
+@media (max-width: 639px) {
+  .menu-fluid .saj-items .text-item {
+    font-size: clamp(0.7rem, 2.15cqi, 14px);
+  }
+
+  .menu-fluid .saj-tagline {
+    font-size: clamp(1.4rem, 6.25cqi, 42px);
+  }
+}
+
+.menu-fluid .text-desc {
+  font-size: clamp(0.9375rem, 2.68cqi, 18px);
+}
+
+/* Postage-stamp edge: peach circles sit on the four sides and
+   the card clips them in half, so the page shows through as
+   perforations. */
+.menu-cat {
+  --scallop: clamp(8px, 1.8cqi, 12px);
+  --page: #fff7f0;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  background-color: #00728a;
+}
+
+.menu-cat::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--scallop) / -2);
+  z-index: 2;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--page) 98%, transparent 100%);
+  background-size: var(--scallop) var(--scallop);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-position:
+    0 0,
+    0 100%,
+    0 0,
+    100% 0;
+}
+
+.menu-cat-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  margin: calc(var(--scallop) * 0.85);
+  padding: 0.7em;
+  gap: 0.4em;
+  background-color: #00728a;
+}
+
+.menu-cat-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  padding: 1.35em 1.1em;
+  min-height: 4.2em;
+  background-color: #0C4D6A;
+}
+
+.menu-cat-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(2 * 1.15em);
+  font-family: var(--font-moric);
+  font-size: clamp(0.7rem, 2.55cqi, 1.05rem);
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.menu-cat-rule {
+  display: block;
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.starters-2-panel {
+  background-color: rgb(255 255 255 / 0.95);
+  background-image: url("../assets/starter-2-deco-4.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 80px auto;
+}
