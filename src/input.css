@@ -211,6 +211,14 @@ main > section + section {
   line-height: 1.15;
   text-align: center;
   text-transform: uppercase;
+  -webkit-text-stroke: 1px currentColor;
+  paint-order: stroke fill;
+}
+
+@media (max-width: 479px) {
+  .menu-cat-label {
+    font-size: clamp(0.95rem, 4.4cqi, 1.2rem);
+  }
 }
 
 .menu-cat-rule {
